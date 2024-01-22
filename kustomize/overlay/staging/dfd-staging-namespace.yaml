@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dfd-staging
+  labels:
+    environment-id: env_2ee9d5e8-3fdf-450e-b1c1-9ac3bf50758c
+    project-id: project_f9d4e765-bbc7-41bf-bec2-e805d8d48285
+    project-name: dfd
+    environment-name: staging
+    organization-id: org_6d1064c7-007d-44b1-9606-8fef3a204121
