@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fff-staging
+  labels:
+    environment-id: env_3404a0c4-a4ea-4a61-a5d7-13d23b00f6eb
+    project-id: project_081baac5-2450-46ed-bff0-466149d38abd
+    project-name: fff
+    environment-name: staging
+    organization-id: org_6d1064c7-007d-44b1-9606-8fef3a204121
