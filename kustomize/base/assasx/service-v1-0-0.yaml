@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    app: assasx-v1-0-0
+    applicationId: app_750cf30d-58e6-4331-bb24-5b09aaf48d84
+    version: v1.0.0
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    projectId: project_f9d4e765-bbc7-41bf-bec2-e805d8d48285
+  name: assasx-v1-0-0
+spec:
+  selector:
+    app: assasx-v1-0-0

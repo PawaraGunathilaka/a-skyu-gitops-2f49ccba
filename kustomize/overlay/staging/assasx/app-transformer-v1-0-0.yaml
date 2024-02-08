@@ -1,0 +1,46 @@
+apiVersion: transformers.customplugin.co/v1
+kind: SkyUAppTransformer
+metadata:
+  name: skyu-deployment
+  annotations:
+    config.kubernetes.io/function: |
+      exec:
+        path: skyu-app-transformer
+spec:
+  applicationContainers:
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 150
+      memoryRequestMb: 350
+      memoryLimitMb: 450
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: assasx-main
+      imagePullPolicy: Always
+      imageRegistry: x/xxxxxx
+      imagePullSecretName: imagepull-docker
+      credentialId: credential_d95d2c5a-cf3a-46ee-8e55-703bf38d164e
+  minReplicas: 1
+  maxReplicas: 1
+  terminationGracePeriodSeconds: 60
+  nodeSelector: {}
+  suspend: false
+  ttlSecondsAfterFinished: 0
+  labels:
+    app: assasx
+    version: v1.0.0
+    applicationId: app_750cf30d-58e6-4331-bb24-5b09aaf48d84
+    projectId: project_f9d4e765-bbc7-41bf-bec2-e805d8d48285
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    environmentId: env_2ee9d5e8-3fdf-450e-b1c1-9ac3bf50758c
+    environmentName: staging
+  horizontalAutoScalingRules: []
+  volumes: []
+  type: Deployment
+  name: assasx
+  serviceType: ClusterIP
+  version: v1.0.0
+  namespace: dfd-staging
