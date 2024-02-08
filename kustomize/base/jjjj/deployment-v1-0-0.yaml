@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jjjj-v1-0-0
+  labels:
+    app: jjjj-v1-0-0
+    applicationId: app_6f708cbe-cbcb-4e32-893d-5830a69eeadb
+    version: v1.0.0
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    projectId: project_081baac5-2450-46ed-bff0-466149d38abd
+spec:
+  selector:
+    matchLabels:
+      app: jjjj-v1-0-0
+  template:
+    metadata:
+      labels:
+        app: jjjj-v1-0-0

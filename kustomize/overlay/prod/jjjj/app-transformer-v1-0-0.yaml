@@ -1,0 +1,46 @@
+apiVersion: transformers.customplugin.co/v1
+kind: SkyUAppTransformer
+metadata:
+  name: skyu-deployment
+  annotations:
+    config.kubernetes.io/function: |
+      exec:
+        path: skyu-app-transformer
+spec:
+  applicationContainers:
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 150
+      memoryRequestMb: 350
+      memoryLimitMb: 450
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: jjjj-main
+      imagePullPolicy: Always
+      imageRegistry: w/ww
+      imagePullSecretName: imagepull-docker
+      credentialId: credential_c85b2c45-e5e7-4834-9ed4-5b040861d43a
+  minReplicas: 1
+  maxReplicas: 1
+  terminationGracePeriodSeconds: 60
+  nodeSelector: {}
+  suspend: false
+  ttlSecondsAfterFinished: 0
+  labels:
+    app: jjjj
+    version: v1.0.0
+    applicationId: app_6f708cbe-cbcb-4e32-893d-5830a69eeadb
+    projectId: project_081baac5-2450-46ed-bff0-466149d38abd
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    environmentId: env_92e0f597-93eb-45d9-8a94-7544def6e681
+    environmentName: prod
+  horizontalAutoScalingRules: []
+  volumes: []
+  type: Deployment
+  name: jjjj
+  serviceType: ClusterIP
+  version: v1.0.0
+  namespace: fff-prod
