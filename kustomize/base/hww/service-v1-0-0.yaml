@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    app: hww-v1-0-0
+    applicationId: app_0010a812-9773-4fed-ac02-390c81d464d3
+    version: v1.0.0
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    projectId: project_dd984bf7-7988-436c-a84f-39a4c120a98f
+  name: hww-v1-0-0
+spec:
+  selector:
+    app: hww-v1-0-0

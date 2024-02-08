@@ -1,0 +1,46 @@
+apiVersion: transformers.customplugin.co/v1
+kind: SkyUAppTransformer
+metadata:
+  name: skyu-deployment
+  annotations:
+    config.kubernetes.io/function: |
+      exec:
+        path: skyu-app-transformer
+spec:
+  applicationContainers:
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 150
+      memoryRequestMb: 350
+      memoryLimitMb: 450
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: hww-main
+      imagePullPolicy: Always
+      imageRegistry: new/new
+      imagePullSecretName: imagepull-docker
+      credentialId: credential_c3743ebe-735e-42da-855a-4c77ae05b06b
+  minReplicas: 1
+  maxReplicas: 1
+  terminationGracePeriodSeconds: 60
+  nodeSelector: {}
+  suspend: false
+  ttlSecondsAfterFinished: 0
+  labels:
+    app: hww
+    version: v1.0.0
+    applicationId: app_0010a812-9773-4fed-ac02-390c81d464d3
+    projectId: project_dd984bf7-7988-436c-a84f-39a4c120a98f
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    environmentId: env_3e4ed670-aed4-4f57-9077-7ab2f644a449
+    environmentName: prod
+  horizontalAutoScalingRules: []
+  volumes: []
+  type: Deployment
+  name: hww
+  serviceType: ClusterIP
+  version: v1.0.0
+  namespace: new-prod
