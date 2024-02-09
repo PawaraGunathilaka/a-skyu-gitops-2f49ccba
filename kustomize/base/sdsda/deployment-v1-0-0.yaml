@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdsda-v1-0-0
+  labels:
+    app: sdsda-v1-0-0
+    applicationId: app_ba42bc8b-9fa2-4b1e-8d99-03fe2ab4fc32
+    version: v1.0.0
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    projectId: project_3be0574b-7ed8-43cf-83e5-4278379af929
+spec:
+  selector:
+    matchLabels:
+      app: sdsda-v1-0-0
+  template:
+    metadata:
+      labels:
+        app: sdsda-v1-0-0
