@@ -1,0 +1,16 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations: {}
+  name: y-v1-0-0
+  labels:
+    app: y-v1-0-0
+    applicationId: app_b4221e75-21fc-489c-a45d-72a417adaaa3
+    version: v1.0.0
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    projectId: project_3be0574b-7ed8-43cf-83e5-4278379af929
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: y-v1-0-0
