@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    app: ggg-v1-0-0
+    applicationId: app_af798b5b-0c62-4bce-814c-a646607081f7
+    version: v1.0.0
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    projectId: project_dd984bf7-7988-436c-a84f-39a4c120a98f
+  name: ggg-v1-0-0
+spec:
+  selector:
+    app: ggg-v1-0-0
