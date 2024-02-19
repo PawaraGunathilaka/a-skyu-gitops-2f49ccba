@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sda-staging
+  labels:
+    environment-id: env_9bbef0a4-d603-457a-9942-4ca3be5ecfe0
+    project-id: project_ffe2681e-3418-401a-9222-e7da84cb8ed6
+    project-name: sda
+    environment-name: staging
+    organization-id: org_6d1064c7-007d-44b1-9606-8fef3a204121
