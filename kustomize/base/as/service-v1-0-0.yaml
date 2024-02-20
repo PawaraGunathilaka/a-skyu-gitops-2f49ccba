@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    app: as-v1-0-0
+    applicationId: app_a18e1f34-6bbb-4856-a9d6-e41363c3ce4e
+    version: v1.0.0
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
+    projectId: project_ffe2681e-3418-401a-9222-e7da84cb8ed6
+  name: as-v1-0-0
+spec:
+  selector:
+    app: as-v1-0-0
