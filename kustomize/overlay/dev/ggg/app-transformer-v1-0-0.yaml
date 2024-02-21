@@ -20,9 +20,9 @@ spec:
       healthChecks: []
       name: ggg-main
       imagePullPolicy: Always
-      imageRegistry: new/new
+      imageRegistry: 1/1
       imagePullSecretName: imagepull-docker
-      credentialId: credential_c3743ebe-735e-42da-855a-4c77ae05b06b
+      credentialId: credential_b3c8aa81-405f-4a45-95a8-de0ed27318b1
   minReplicas: 1
   maxReplicas: 1
   terminationGracePeriodSeconds: 60
@@ -32,15 +32,15 @@ spec:
   labels:
     app: ggg
     version: v1.0.0
-    applicationId: app_af798b5b-0c62-4bce-814c-a646607081f7
-    projectId: project_dd984bf7-7988-436c-a84f-39a4c120a98f
+    applicationId: app_a8431e94-1c9a-4aab-aa3c-94e0a323368c
+    projectId: project_ffe2681e-3418-401a-9222-e7da84cb8ed6
     organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
-    environmentId: env_bac40d9e-38c7-4a01-95a8-11dc1041b315
+    environmentId: env_428294d9-e09f-4f0f-8f1a-3692ff170f19
     environmentName: dev
   horizontalAutoScalingRules: []
   volumes: []
   type: Deployment
-  name: GGG
+  name: ggg
   serviceType: ClusterIP
   version: v1.0.0
-  namespace: new-dev
+  namespace: sda-dev

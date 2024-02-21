@@ -4,10 +4,10 @@ metadata:
   annotations: {}
   labels:
     app: ggg-v1-0-0
-    applicationId: app_af798b5b-0c62-4bce-814c-a646607081f7
+    applicationId: app_a8431e94-1c9a-4aab-aa3c-94e0a323368c
     version: v1.0.0
     organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
-    projectId: project_dd984bf7-7988-436c-a84f-39a4c120a98f
+    projectId: project_ffe2681e-3418-401a-9222-e7da84cb8ed6
   name: ggg-v1-0-0
 spec:
   selector:
