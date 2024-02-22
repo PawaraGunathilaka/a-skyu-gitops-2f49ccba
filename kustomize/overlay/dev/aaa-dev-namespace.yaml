@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aaa-dev
+  labels:
+    environmentId: env_129156ab-e410-4794-ab4d-99acf521e940
+    projectId: project_6dfe03c0-447e-41e7-8fe8-725f4a1d8f46
+    projectName: aaa
+    environmentName: dev
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121

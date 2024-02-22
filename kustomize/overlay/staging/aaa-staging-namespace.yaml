@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aaa-staging
+  labels:
+    environmentId: env_8ace4218-ed2c-4553-a3b8-fa99dbc03a9b
+    projectId: project_6dfe03c0-447e-41e7-8fe8-725f4a1d8f46
+    projectName: aaa
+    environmentName: staging
+    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
