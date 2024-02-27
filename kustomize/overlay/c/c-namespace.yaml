@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: c
+  labels:
+    environmentId: env_ad578c91-042f-4148-946b-d68a3efe3bdd
+    projectId: project_14b5198c-251f-44c3-8685-04e102854002
+    projectName: pawara
+    environmentName: c
+    organizationId: org_83167af8-ae98-451b-972e-dca861896824
