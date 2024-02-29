@@ -4,10 +4,12 @@ metadata:
   name: test-app-2-v1-0-0
   labels:
     app: test-app-2-v1-0-0
-    applicationId: app_c2cb7d59-3793-41c0-ab39-645e4d1dfa4b
+    applicationId: app_0baaca20-6eff-436f-893e-1bb2f0fd91f6
     version: v1.0.0
     organizationId: org_83167af8-ae98-451b-972e-dca861896824
-    projectId: project_6f6975f2-decd-4f57-ae4c-4665eb56ef05
+    projectId: project_defdd726-16b5-42b9-afaf-d1096744e902
+  annotations:
+    reloader.stakater.com/auto: 'true'
 spec:
   selector:
     matchLabels:
@@ -16,7 +18,7 @@ spec:
     metadata:
       labels:
         app: test-app-2-v1-0-0
-        applicationId: app_c2cb7d59-3793-41c0-ab39-645e4d1dfa4b
+        applicationId: app_0baaca20-6eff-436f-893e-1bb2f0fd91f6
         version: v1.0.0
         organizationId: org_83167af8-ae98-451b-972e-dca861896824
-        projectId: project_6f6975f2-decd-4f57-ae4c-4665eb56ef05
+        projectId: project_defdd726-16b5-42b9-afaf-d1096744e902

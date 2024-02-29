@@ -1,0 +1,46 @@
+apiVersion: transformers.customplugin.co/v1
+kind: SkyUAppTransformer
+metadata:
+  name: skyu-deployment
+  annotations:
+    config.kubernetes.io/function: |
+      exec:
+        path: skyu-app-transformer
+spec:
+  applicationContainers:
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 150
+      memoryRequestMb: 350
+      memoryLimitMb: 450
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: test-app-2-main
+      imagePullPolicy: Always
+      imageRegistry: test/test-app-2
+      imagePullSecretName: imagepull-docker
+      credentialId: credential_3ed98151-2886-491c-8325-2e5ad7019b80
+  minReplicas: 1
+  maxReplicas: 1
+  terminationGracePeriodSeconds: 60
+  nodeSelector: {}
+  suspend: false
+  ttlSecondsAfterFinished: 0
+  labels:
+    app: test-app-2
+    version: v1.0.0
+    applicationId: app_0baaca20-6eff-436f-893e-1bb2f0fd91f6
+    projectId: project_defdd726-16b5-42b9-afaf-d1096744e902
+    organizationId: org_83167af8-ae98-451b-972e-dca861896824
+    environmentId: env_9db8c605-6eb9-4fd2-9767-d8f7f435b743
+    environmentName: prod
+  horizontalAutoScalingRules: []
+  volumes: []
+  type: Deployment
+  name: test-app-2
+  serviceType: ClusterIP
+  version: v1.0.0
+  namespace: pawara-2-prod
