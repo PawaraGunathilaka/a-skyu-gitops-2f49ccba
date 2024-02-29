@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app2-v1-0-0
+  labels:
+    app: test-app2-v1-0-0
+    applicationId: app_6625162f-4972-4a9c-a31b-ee77ad99dc5b
+    version: v1.0.0
+    organizationId: org_83167af8-ae98-451b-972e-dca861896824
+    projectId: project_52a258ba-ed31-4cf7-9362-70a309b342aa
+spec:
+  selector:
+    matchLabels:
+      app: test-app2-v1-0-0
+  template:
+    metadata:
+      labels:
+        app: test-app2-v1-0-0
+        applicationId: app_6625162f-4972-4a9c-a31b-ee77ad99dc5b
+        version: v1.0.0
+        organizationId: org_83167af8-ae98-451b-972e-dca861896824
+        projectId: project_52a258ba-ed31-4cf7-9362-70a309b342aa

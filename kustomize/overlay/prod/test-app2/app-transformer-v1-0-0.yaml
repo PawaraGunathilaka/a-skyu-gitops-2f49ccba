@@ -1,0 +1,46 @@
+apiVersion: transformers.customplugin.co/v1
+kind: SkyUAppTransformer
+metadata:
+  name: skyu-deployment
+  annotations:
+    config.kubernetes.io/function: |
+      exec:
+        path: skyu-app-transformer
+spec:
+  applicationContainers:
+    - imageTag: latest
+      cpuRequestMili: 100
+      cpuLimitMili: 150
+      memoryRequestMb: 350
+      memoryLimitMb: 450
+      args: []
+      command: []
+      configMounts: []
+      applicationPorts: []
+      healthChecks: []
+      name: test-app2-main
+      imagePullPolicy: Always
+      imageRegistry: test/test-app2
+      imagePullSecretName: imagepull-docker
+      credentialId: credential_fac8fd4e-3876-4904-886d-034cc3406b5f
+  minReplicas: 1
+  maxReplicas: 1
+  terminationGracePeriodSeconds: 60
+  nodeSelector: {}
+  suspend: false
+  ttlSecondsAfterFinished: 0
+  labels:
+    app: test-app2
+    version: v1.0.0
+    applicationId: app_6625162f-4972-4a9c-a31b-ee77ad99dc5b
+    projectId: project_52a258ba-ed31-4cf7-9362-70a309b342aa
+    organizationId: org_83167af8-ae98-451b-972e-dca861896824
+    environmentId: env_67b1ee47-f448-4476-b0cc-cd50a43b2451
+    environmentName: prod
+  horizontalAutoScalingRules: []
+  volumes: []
+  type: Deployment
+  name: test-app2
+  serviceType: ClusterIP
+  version: v1.0.0
+  namespace: test-env-prod
