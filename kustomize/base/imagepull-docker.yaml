@@ -4,13 +4,13 @@ metadata:
   name: imagepull-docker
   labels:
     organizationId: org_83167af8-ae98-451b-972e-dca861896824
-    projectId: project_14b5198c-251f-44c3-8685-04e102854002
+    projectId: project_52a258ba-ed31-4cf7-9362-70a309b342aa
   namespace: skyu-system
   annotations:
-    replicator.v1.mittwald.de/replicate-to-matching: project-id=project_14b5198c-251f-44c3-8685-04e102854002
+    replicator.v1.mittwald.de/replicate-to-matching: project-id=project_52a258ba-ed31-4cf7-9362-70a309b342aa
 spec:
   skyuControlPlaneAPI:
     organizationId: org_83167af8-ae98-451b-972e-dca861896824
-    projectId: project_14b5198c-251f-44c3-8685-04e102854002
+    projectId: project_52a258ba-ed31-4cf7-9362-70a309b342aa
   provider: docker
-  secretRef: secret_761d4cbf-c9e8-41f4-9077-30e9795deaa5
+  secretRef: secret_feca4cf8-ee9f-480f-949b-e92011ffaef2
