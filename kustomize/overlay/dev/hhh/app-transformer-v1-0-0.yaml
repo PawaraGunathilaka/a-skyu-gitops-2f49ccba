@@ -20,8 +20,9 @@ spec:
       healthChecks: []
       name: hhh-main
       imagePullPolicy: Always
-      imageRegistry: 272133924862.dkr.ecr.us-east-1.amazonaws.com/ecr
-      credentialId: credential_a3dc0243-5ee1-485a-bc56-7425947f29b1
+      imageRegistry: test/hhh
+      imagePullSecretName: imagepull-docker
+      credentialId: credential_153916e4-2463-4c33-a422-b4fff74f499c
   minReplicas: 1
   maxReplicas: 1
   terminationGracePeriodSeconds: 60
@@ -31,15 +32,15 @@ spec:
   labels:
     app: hhh
     version: v1.0.0
-    applicationId: app_89117fce-14e9-4d81-8ae7-a193406308e0
-    projectId: project_dd984bf7-7988-436c-a84f-39a4c120a98f
-    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
-    environmentId: env_bac40d9e-38c7-4a01-95a8-11dc1041b315
+    applicationId: app_258f852b-79bb-4cb4-95ca-f058236b0045
+    projectId: project_14b5198c-251f-44c3-8685-04e102854002
+    organizationId: org_83167af8-ae98-451b-972e-dca861896824
+    environmentId: env_fcb36d63-33c4-4829-9fe6-c8b54a649524
     environmentName: dev
   horizontalAutoScalingRules: []
   volumes: []
   type: Deployment
-  name: HHH
+  name: hhh
   serviceType: ClusterIP
   version: v1.0.0
-  namespace: new-dev
+  namespace: pawara-dev

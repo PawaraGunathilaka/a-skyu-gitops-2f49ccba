@@ -35,12 +35,12 @@ spec:
     applicationId: app_258f852b-79bb-4cb4-95ca-f058236b0045
     projectId: project_14b5198c-251f-44c3-8685-04e102854002
     organizationId: org_83167af8-ae98-451b-972e-dca861896824
-    environmentId: env_df733727-9997-4936-aad8-b1fedf203771
-    environmentName: prod
+    environmentId: env_94338eea-684c-47b7-88d9-93434ee23a2a
+    environmentName: d
   horizontalAutoScalingRules: []
   volumes: []
   type: Deployment
   name: hhh
   serviceType: ClusterIP
   version: v1.0.0
-  namespace: pawara-prod
+  namespace: d

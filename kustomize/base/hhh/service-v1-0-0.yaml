@@ -4,10 +4,10 @@ metadata:
   annotations: {}
   labels:
     app: hhh-v1-0-0
-    applicationId: app_89117fce-14e9-4d81-8ae7-a193406308e0
+    applicationId: app_258f852b-79bb-4cb4-95ca-f058236b0045
     version: v1.0.0
-    organizationId: org_6d1064c7-007d-44b1-9606-8fef3a204121
-    projectId: project_dd984bf7-7988-436c-a84f-39a4c120a98f
+    organizationId: org_83167af8-ae98-451b-972e-dca861896824
+    projectId: project_14b5198c-251f-44c3-8685-04e102854002
   name: hhh-v1-0-0
 spec:
   selector:
