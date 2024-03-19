@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tew-v1-0-0
+  labels:
+    app: tew-v1-0-0
+    applicationId: app_b6667695-2a60-4910-b789-51760afb8204
+    version: v1.0.0
+    organizationId: org_83167af8-ae98-451b-972e-dca861896824
+    projectId: project_d6bb4550-4380-4c38-b7cf-c96957446fd5
+  annotations:
+    reloader.stakater.com/auto: 'true'
+spec:
+  selector:
+    matchLabels:
+      app: tew-v1-0-0
+  template:
+    metadata:
+      labels:
+        app: tew-v1-0-0
+        applicationId: app_b6667695-2a60-4910-b789-51760afb8204
+        version: v1.0.0
+        organizationId: org_83167af8-ae98-451b-972e-dca861896824
+        projectId: project_d6bb4550-4380-4c38-b7cf-c96957446fd5
