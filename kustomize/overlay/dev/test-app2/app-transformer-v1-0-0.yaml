@@ -11,7 +11,7 @@ spec:
     - imageTag: latest
       cpuRequestMili: 100
       cpuLimitMili: 150
-      memoryRequestMb: 350
+      memoryRequestMb: 450
       memoryLimitMb: 450
       args: []
       command: []
