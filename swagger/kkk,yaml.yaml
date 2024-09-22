@@ -1,95 +1,175 @@
-openapi: 3.0.0
+components:
+  schemas: {}
 info:
-  title: Sample User API
-  description: A simple API for managing users
+  title: Merged API Specification
   version: 1.0.0
-servers:
-  - url: http://localhost:3000/api
-    description: Local development server
-
+openapi: 3.0.0
 paths:
-  /users:
-    get:
-      summary: Get a list of users
-      description: Retrieve a list of all users
-      responses:
-        '200':
-          description: A JSON array of user objects
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
-    post:
-      summary: Create a new user
-      description: Add a new user to the system
-      requestBody:
-        description: User object that needs to be created
+  /add/{user_id}/{coffee_id}:
+    delete:
+      parameters:
+      - description: ID of the user
+        in: path
+        name: user_id
         required: true
+        schema:
+          type: string
+      - description: ID of the coffee
+        in: path
+        name: coffee_id
+        required: true
+        schema:
+          type: string
+      requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserInput'
-      responses:
-        '201':
-          description: User created successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-        '400':
-          description: Invalid input
-
-  /users/{userId}:
-    get:
-      summary: Get user by ID
-      description: Retrieve a specific user by their ID
-      parameters:
-        - in: path
-          name: userId
-          required: true
-          schema:
-            type: string
-          description: The ID of the user to retrieve
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              type: object
+        required: true
       responses:
         '200':
-          description: User details
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-        '404':
-          description: User not found
-
-components:
-  schemas:
-    User:
-      type: object
-      properties:
-        id:
+                properties:
+                  data:
+                    properties:
+                      __v:
+                        type: integer
+                      _id:
+                        type: string
+                      coffeeId:
+                        type: string
+                      createdAt:
+                        type: string
+                      quantity:
+                        type: integer
+                      userId:
+                        type: string
+                    type: object
+                  message:
+                    type: string
+                type: object
+          description: OK
+      summary: Remove From Cart
+    post:
+      parameters:
+      - description: ID of the user
+        in: path
+        name: user_id
+        required: true
+        schema:
           type: string
-          description: Unique identifier for the user
-        name:
+      - description: ID of the coffee
+        in: path
+        name: coffee_id
+        required: true
+        schema:
           type: string
-          description: Full name of the user
-        email:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    properties:
+                      __v:
+                        type: integer
+                      _id:
+                        type: string
+                      coffeeId:
+                        type: string
+                      createdAt:
+                        type: string
+                      quantity:
+                        type: integer
+                      userId:
+                        type: string
+                    type: object
+                  message:
+                    type: string
+                type: object
+          description: OK
+      summary: Add to Cart
+  /health:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                type: object
+          description: OK
+      summary: Get Health
+  /{user_id}:
+    delete:
+      parameters:
+      - description: ID of the user
+        in: path
+        name: user_id
+        required: true
+        schema:
           type: string
-          description: Email address of the user
-        createdAt:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    properties:
+                      acknowledged:
+                        type: boolean
+                      deletedCount:
+                        type: integer
+                    type: object
+                  message:
+                    type: string
+                type: object
+          description: OK
+      summary: Delete Cart
+    get:
+      parameters:
+      - description: ID of the user
+        in: path
+        name: user_id
+        required: true
+        schema:
           type: string
-          format: date-time
-          description: Date the user was created
-
-    UserInput:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Full name of the user
-        email:
-          type: string
-          description: Email address of the user
-      required:
-        - name
-        - email
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    items:
+                      properties:
+                        __v:
+                          type: integer
+                        _id:
+                          type: string
+                        coffeeId:
+                          type: string
+                        createdAt:
+                          type: string
+                        quantity:
+                          type: integer
+                        userId:
+                          type: string
+                      type: object
+                    type: array
+                  message:
+                    type: string
+                type: object
+          description: OK
+      summary: Get Cart
