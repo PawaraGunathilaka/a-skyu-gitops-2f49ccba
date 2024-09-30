@@ -1,0 +1,164 @@
+openapi: 3.0.0
+info:
+  title: Swagger Spec API
+  version: 1.0.0
+  description: API for managing Swagger specifications
+
+servers:
+  - url: http://localhost:3000
+    description: Local server
+
+paths:
+  /swagger-specs:
+    post:
+      summary: Create a new Swagger spec
+      description: Creates a new Swagger spec based on the provided body
+      operationId: createSwaggerSpec
+      tags:
+        - SwaggerSpecs
+      requestBody:
+        description: Swagger specification details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SwaggerSpecDto'
+      responses:
+        '200':
+          description: Swagger spec created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad request
+    get:
+      summary: Get all Swagger specs by App ID
+      description: Retrieves all Swagger specs associated with an application
+      operationId: findAllSwaggerSpecs
+      tags:
+        - SwaggerSpecs
+      responses:
+        '200':
+          description: List of Swagger specs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+
+  /swagger-specs/{id}:
+    get:
+      summary: Get a specific Swagger spec
+      description: Retrieves a Swagger spec by its ID
+      operationId: findSwaggerSpecById
+      tags:
+        - SwaggerSpecs
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the Swagger spec
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Swagger spec found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '404':
+          description: Swagger spec not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+    
+    delete:
+      summary: Delete a Swagger spec
+      description: Deletes a Swagger spec by its ID
+      operationId: deleteSwaggerSpec
+      tags:
+        - SwaggerSpecs
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the Swagger spec
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Swagger spec deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad request - Missing ID
+
+  /swagger-specs:
+    put:
+      summary: Update a Swagger spec
+      description: Updates a Swagger spec with the provided details
+      operationId: updateSwaggerSpec
+      tags:
+        - SwaggerSpecs
+      requestBody:
+        description: Updated Swagger specification details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSwaggerSpecDto'
+      responses:
+        '200':
+          description: Swagger spec updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad request
+
+components:
+  schemas:
+    SwaggerSpecDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        gitPath:
+          type: string
+        version:
+          type: string
+        appId:
+          type: string
+    UpdateSwaggerSpecDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        gitPath:
+          type: string
+        version:
+          type: string
+    ApiResponseDto:
+      type: object
+      properties:
+        message:
+          type: string
+        success:
+          type: boolean
+        data:
+          oneOf:
+            - $ref: '#/components/schemas/SwaggerSpecDto'
+            - type: string
