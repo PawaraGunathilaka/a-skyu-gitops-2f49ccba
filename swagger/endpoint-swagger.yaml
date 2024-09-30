@@ -3,7 +3,6 @@ info:
   title: Swagger Spec API
   version: 1.0.0
   description: API for managing Swagger specifications
-
 paths:
   /swagger-specs:
     post:
@@ -18,14 +17,47 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SwaggerSpecDto'
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                url:
+                  type: string
+                gitPath:
+                  type: string
+                version:
+                  type: string
+                appId:
+                  type: string
       responses:
         '200':
           description: Swagger spec created successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponseDto'
+                type: object
+                properties:
+                  message:
+                    type: string
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      url:
+                        type: string
+                      gitPath:
+                        type: string
+                      version:
+                        type: string
+                      appId:
+                        type: string
         '400':
           description: Bad request
     get:
@@ -40,7 +72,29 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponseDto'
+                type: object
+                properties:
+                  message:
+                    type: string
+                  success:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        url:
+                          type: string
+                        gitPath:
+                          type: string
+                        version:
+                          type: string
+                        appId:
+                          type: string
 
   /swagger-specs/{id}:
     get:
@@ -62,13 +116,40 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponseDto'
+                type: object
+                properties:
+                  message:
+                    type: string
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      url:
+                        type: string
+                      gitPath:
+                        type: string
+                      version:
+                        type: string
+                      appId:
+                        type: string
         '404':
           description: Swagger spec not found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponseDto'
+                type: object
+                properties:
+                  message:
+                    type: string
+                  success:
+                    type: boolean
+                  data:
+                    type: string
     
     delete:
       summary: Delete a Swagger spec
@@ -89,7 +170,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponseDto'
+                type: object
+                properties:
+                  message:
+                    type: string
+                  success:
+                    type: boolean
+                  data:
+                    type: string
         '400':
           description: Bad request - Missing ID
 
@@ -106,55 +194,42 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateSwaggerSpecDto'
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                url:
+                  type: string
+                gitPath:
+                  type: string
+                version:
+                  type: string
       responses:
         '200':
           description: Swagger spec updated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApiResponseDto'
+                type: object
+                properties:
+                  message:
+                    type: string
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      url:
+                        type: string
+                      gitPath:
+                        type: string
+                      version:
+                        type: string
         '400':
           description: Bad request
-
-components:
-  schemas:
-    SwaggerSpecDto:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-        gitPath:
-          type: string
-        version:
-          type: string
-        appId:
-          type: string
-    UpdateSwaggerSpecDto:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-        gitPath:
-          type: string
-        version:
-          type: string
-    ApiResponseDto:
-      type: object
-      properties:
-        message:
-          type: string
-        success:
-          type: boolean
-        data:
-          oneOf:
-            - $ref: '#/components/schemas/SwaggerSpecDto'
-            - type: string
