@@ -1,0 +1,199 @@
+openapi: 3.0.0
+info:
+  title: Merged API Specification
+  version: 1.0.0
+paths:
+  /swagger-specs:
+    post:
+      summary: Create a new Swagger Spec
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SwaggerSpecDto'
+      responses:
+        '201':
+          description: Swagger Spec created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+    get:
+      summary: Get all Swagger Specs for a specific App Id
+      responses:
+        '200':
+          description: Swagger Specs retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+  /swagger-specs/{id}:
+    get:
+      summary: Get a single Swagger Spec
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Swagger Spec retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+    put:
+      summary: Update a Swagger Spec
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSwaggerSpecDto'
+      responses:
+        '200':
+          description: Swagger Spec updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+    delete:
+      summary: Delete a Swagger Spec
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Swagger Spec deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+components:
+  schemas:
+    SwaggerSpecDto:
+      type: object
+      properties:
+        app_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        api_key:
+          type: string
+        spec:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    UpdateSwaggerSpecDto:
+      type: object
+      properties:
+        id:
+          type: string
+        app_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        api_key:
+          type: string
+        spec:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    ApiResponseDto:
+      type: object
+      properties:
+        message:
+          type: string
+        success:
+          type: boolean
+        data:
+          type: object
+    SwaggerSpecSchema:
+      type: object
+      properties:
+        app_id:
+          type: string
+          required: true
+        name:
+          type: string
+          required: true
+        description:
+          type: string
+          required: true
+        url:
+          type: string
+          required: true
+        api_key:
+          type: string
+          required: true
+        spec:
+          type: string
+          required: true
+    UpdateSwaggerSpecSchema:
+      type: object
+      properties:
+        id:
+          type: string
+          required: true
+        app_id:
+          type: string
+          required: true
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        api_key:
+          type: string
+        spec:
+          type: string
