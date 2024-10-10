@@ -1,0 +1,170 @@
+openapi: 3.0.0
+info:
+  title: Merged API Specification
+  version: 1.0.0
+paths:
+  /swagger-specs:
+    post:
+      summary: Create a new Swagger Spec
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SwaggerSpecDto'
+      responses:
+        '201':
+          description: Swagger spec created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+    get:
+      summary: Get all swagger specs by app id
+      responses:
+        '200':
+          description: Successfully Retrieved swagger specs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+  /swagger-specs/{id}:
+    get:
+      summary: Get a single swagger spec by id
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successfully Retrieved swagger spec
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+    put:
+      summary: Update a swagger spec
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSwaggerSpecDto'
+      responses:
+        '200':
+          description: Swagger spec updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+    delete:
+      summary: Delete a swagger spec by id
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Deleted swagger spec
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseDto'
+components:
+  schemas:
+    SwaggerSpecDto:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+        appId:
+          type: string
+        userId:
+          type: string
+    UpdateSwaggerSpecDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+    SwaggerSpec:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+        appId:
+          type: string
+        userId:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    ApiResponseDto:
+      type: object
+      properties:
+        message:
+          type: string
+        success:
+          type: boolean
+        data:
+          type: object
