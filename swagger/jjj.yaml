@@ -1,25 +1,23 @@
-components:
-  schemas: {}
+openapi: 3.0.0
 info:
   title: Merged API Specification
   version: 1.0.0
-openapi: 3.0.0
 paths:
   /add/{user_id}/{coffee_id}:
     delete:
       parameters:
-      - description: ID of the user
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-      - description: ID of the coffee
-        in: path
-        name: coffee_id
-        required: true
-        schema:
-          type: string
+        - description: ID of the user
+          in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+        - description: ID of the coffee
+          in: path
+          name: coffee_id
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -59,18 +57,18 @@ paths:
       summary: Remove From Cart
     post:
       parameters:
-      - description: ID of the user
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-      - description: ID of the coffee
-        in: path
-        name: coffee_id
-        required: true
-        schema:
-          type: string
+        - description: ID of the user
+          in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+        - description: ID of the coffee
+          in: path
+          name: coffee_id
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -113,12 +111,12 @@ paths:
   /{user_id}:
     delete:
       parameters:
-      - description: ID of the user
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
+        - description: ID of the user
+          in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -139,12 +137,12 @@ paths:
       summary: Delete Cart
     get:
       parameters:
-      - description: ID of the user
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
+        - description: ID of the user
+          in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           content:
@@ -173,3 +171,66 @@ paths:
                 type: object
           description: OK
       summary: Get Cart
+  /user:
+    get:
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      summary: Get User
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              type: object
+        required: true
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      summary: Create User
+    put:
+      parameters:
+        - description: ID of the user
+          in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              type: object
+        required: true
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      summary: Update User
+components:
+  schemas: {}
