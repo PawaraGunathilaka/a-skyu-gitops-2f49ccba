@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pawara-5-prod
+  labels:
+    environmentId: env_dcf266c5-1588-47c2-b0a8-fa9592656637
+    projectId: project_9518e66c-b240-49ef-a7a0-88d39aa8c6d5
+    projectName: pawara-5
+    environmentName: prod
+    organizationId: org_6de1b366-9da6-4d55-b363-f5a2c4382016
