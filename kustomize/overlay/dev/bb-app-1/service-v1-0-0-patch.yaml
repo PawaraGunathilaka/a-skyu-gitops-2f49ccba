@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    app: bb-app-1-v1-0-0
+    applicationId: app_164ae7b6-b0c2-4871-a9d8-a5d033e28453
+    version: v1.0.0
+    organizationId: org_6de1b366-9da6-4d55-b363-f5a2c4382016
+    projectId: project_d6eb94b5-d39d-4dc5-8c15-602de5677592
+    environmentId: env_af0778dd-0e4a-44ba-899e-d62b175e6d52
+  name: bb-app-1-v1-0-0
+spec:
+  selector:
+    app: bb-app-1-v1-0-0
